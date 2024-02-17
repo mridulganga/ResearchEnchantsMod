@@ -1,0 +1,41 @@
+{
+	"schemaVersion": 1,
+	"id": "researchenchants",
+	"version": "${version}",
+	"name": "ResearchEnchants",
+	"description": "This is an example description! Tell everyone what your mod is about!",
+	"authors": [
+		"Mridul",
+		"Varun"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "MIT",
+	"icon": "assets/researchenchants/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"dev.mg.researchenchants.ResearchEnchants"
+		],
+		"client": [
+			"dev.mg.researchenchants.ResearchEnchantsClient"
+		],
+		"fabric-datagen": [
+			"dev.mg.researchenchants.ResearchEnchantsDataGenerator"
+		]
+	},
+	"mixins": [
+		"researchenchants.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.15.7",
+		"minecraft": "~1.20.4",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
