@@ -1,5 +1,8 @@
 package dev.mg.researchenchants;
 
+import dev.mg.researchenchants.block.ModBlocks;
+import dev.mg.researchenchants.item.ModItemGroups;
+import dev.mg.researchenchants.item.ModItems;
 import net.fabricmc.api.ModInitializer;
 
 import org.slf4j.Logger;
@@ -12,5 +15,10 @@ public class ResearchEnchants implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		LOGGER.info("Loaded {}", MOD_ID);
+
+		ModItemGroups.registerItemGroups();
+		ModItems.registerModItems();
+		ModBlocks.registerModBlocks();
+
 	}
 }
