@@ -1,4 +1,5 @@
 {
   "itemgroup.researchenchants": "Research Enchants",
-  "block.researchenchants.enchant_researcher": "Enchant Researcher"
+  "block.researchenchants.enchant_researcher": "Enchant Researcher",
+  "block.researchenchants.enchant_creator": "Enchant Creator"
 }

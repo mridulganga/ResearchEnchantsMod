@@ -20,6 +20,7 @@ public class ModItemGroups {
         FabricItemGroup.builder().displayName(Text.translatable("itemgroup.researchenchants"))
                 .icon(() -> new ItemStack(Items.EMERALD)).entries(((displayContext, entries) -> {
                     entries.add(ModBlocks.ENCHANT_RESEARCHER);
+                    entries.add(ModBlocks.ENCHANT_CREATOR);
                 })).build()
     );
     public static void registerItemGroups() {

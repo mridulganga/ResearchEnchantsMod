@@ -1,8 +1,10 @@
 package dev.mg.researchenchants;
 
 import dev.mg.researchenchants.block.ModBlocks;
+import dev.mg.researchenchants.block.entity.ModBlockEntities;
 import dev.mg.researchenchants.item.ModItemGroups;
 import dev.mg.researchenchants.item.ModItems;
+import dev.mg.researchenchants.screen.ModScreenHandlers;
 import net.fabricmc.api.ModInitializer;
 
 import org.slf4j.Logger;
@@ -19,6 +21,7 @@ public class ResearchEnchants implements ModInitializer {
 		ModItemGroups.registerItemGroups();
 		ModItems.registerModItems();
 		ModBlocks.registerModBlocks();
-
+		ModBlockEntities.registerBlockEntities();
+		ModScreenHandlers.registerScreenHandlers();
 	}
 }
