@@ -12,6 +12,6 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
     @Override
     public void generate() {
         addDrop(ModBlocks.ENCHANT_RESEARCHER);
-        addDrop(ModBlocks.ENCHANT_CREATOR);
+//        addDrop(ModBlocks.ENCHANT_CREATOR);
     }
 }

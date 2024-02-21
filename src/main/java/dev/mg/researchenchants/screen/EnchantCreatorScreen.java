@@ -2,6 +2,7 @@ package dev.mg.researchenchants.screen;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import dev.mg.researchenchants.ResearchEnchants;
+import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.render.GameRenderer;
@@ -38,5 +39,7 @@ public class EnchantCreatorScreen extends HandledScreen<EnchantCreatorScreenHand
         renderBackground(context, mouseX, mouseY, delta);
         super.render(context, mouseX, mouseY, delta);
         drawMouseoverTooltip(context, mouseX, mouseY);
+        final String costText = "Cost: " + handler.getLevelCost();
+        context.drawText(this.textRenderer, costText, this.width / 2 - costText.length()*2, 80, 0x2d3436, false);
     }
 }

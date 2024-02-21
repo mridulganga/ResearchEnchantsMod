@@ -1,12 +1,15 @@
 package dev.mg.researchenchants.block.custom;
 
 import com.mojang.serialization.MapCodec;
+import dev.mg.researchenchants.block.ModBlocks;
 import dev.mg.researchenchants.block.entity.EnchantCreatorBlockEntity;
 import dev.mg.researchenchants.block.entity.ModBlockEntities;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.screen.*;
 import net.minecraft.util.ActionResult;
@@ -18,9 +21,16 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 public class EnchantCreator extends BlockWithEntity implements BlockEntityProvider {
+    private Enchantment enchantment = Enchantments.MENDING;
+    private Integer level = 1;
 
     public EnchantCreator(Settings settings) {
         super(settings);
+    }
+
+    public void setEnchantment(Enchantment enchantment, Integer lvl) {
+        this.enchantment = enchantment;
+        this.level = lvl;
     }
 
     @Override
@@ -34,11 +44,18 @@ public class EnchantCreator extends BlockWithEntity implements BlockEntityProvid
         return BlockRenderType.MODEL;
     }
 
+    @Override
+    public BlockState onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player) {
+        super.onBreak(world, pos, state, player);
+        return state;
+    }
+
     @Nullable
     @Override
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
-        return new EnchantCreatorBlockEntity(pos, state);
+        return new EnchantCreatorBlockEntity(pos, state, this.enchantment, this.level);
     }
+
     @Override
     public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
         if (state.getBlock() != newState.getBlock()) {
